@@ -26,8 +26,8 @@ const projects = [
     title: "Portfolio Website",
     desc: "A modern, high-performance portfolio built with Next.js + Tailwind.",
     tech: ["Next.js", "React", "Tailwind"],
-    githubUrl: "https://github.com/abhishek-2006/",
-    liveUrl: "https://abhishek-2006.github.io/live-portfolio",
+    githubUrl: "https://github.com/abhishek-2006/my-portfolio.git",
+    liveUrl: "https://my-portfolio-jade-seven-42.vercel.app/",
   },
 ];
 
