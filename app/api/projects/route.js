@@ -3,7 +3,6 @@ export async function GET() {
     const res = await fetch(URL = "https://api.github.com/users/abhishek-2006/repos?sort=updated&direction=desc", {
       headers: {
         "User-Agent": "portfolio",
-        'Authorization': `token ${process.env.GITHUB_TOKEN}`, 
         Accept: "application/vnd.github+json",
       },
       next: { revalidate: 3600 }, // cache for 1 hour
