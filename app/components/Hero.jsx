@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
-import { Github, Linkedin} from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
 import Lottie from "lottie-react";
 import {ReactTyped} from "react-typed";
@@ -185,10 +185,10 @@ export default function Hero() {
 
             <div className="ml-auto hidden md:flex gap-3 items-center">
               <a href="https://github.com/abhishek-2006" className="text-gray-300 hover:text-cyan-300 transition">
-                <Github size={20} />
+                <FaGithub size={20} />
               </a>
               <a href="https://www.linkedin.com/in/abhishek-shah-aa1346326/" className="text-gray-300 hover:text-cyan-300 transition">
-                <Linkedin size={20} />
+                <FaLinkedin size={20} />
               </a>
               <a href="https://x.com/shahabhishek409" className="text-gray-300 hover:text-cyan-300 transition">
                 <Twitter size={20} />
