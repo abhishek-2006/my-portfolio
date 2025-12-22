@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Zap } from 'lucide-react';
+import { ExternalLink, Zap } from 'lucide-react';
+import { FaGithub as Github} from "react-icons/fa6";
 import StyledLink from "@/app/components/StyledLink";
 import Link from "next/link";
 
