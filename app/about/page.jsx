@@ -4,7 +4,15 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from 'lucide-react';
 
-// Custom Typewriter Component to replace react-typed
+const COLORS = {
+  cyan400: "#22d3ee",
+  blue600: "#2563eb",
+  indigo500: "#6366f1",
+  slate400: "#94a3b8",
+  slate900: "#0f172a",
+  white: "#ffffff"
+};
+
 const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, loop = true }) => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -40,9 +48,11 @@ const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, loop = true }) =>
     <span className="text-gray-200">
       {displayText}
       <span className="animate-pulse border-r-2 border-cyan-400 ml-1"></span>
+      <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} style={{ color: COLORS.cyan400 }}>|</motion.span>
     </span>
   );
 };
+
 
 const Card = ({ children, delay }) => {
   const fadeUp = {
@@ -77,35 +87,34 @@ export default function App() {
     {
       title: "B. Tech in Computer Engineering",
       inst: "Uka Tarsadia University",
-      year: "2025-2028",
+      year: "2025 – 2028",
       detail: "Anticipated Graduation",
-      icon: <GraduationCap className="w-7 h-7 text-cyan-400" />,
-      color: "from-cyan-500/20 to-cyan-500/5"
+      icon: <GraduationCap />,
+      iconColor: COLORS.cyan400
     },
     {
       title: "Diploma in Computer Engineering",
       inst: "Gujarat Technological University",
       year: "2022 – 2025",
       detail: "CGPA: 8.40",
-      icon: <School className="w-7 h-7 text-indigo-400" />,
-      color: "from-indigo-500/20 to-indigo-500/5"
+      icon: <School />,
+      iconColor: COLORS.indigo500
     },
     {
       title: "Secondary (10th)",
       inst: "Gujarat Board",
       year: "Completed in 2022",
       detail: "Percentile: 75.23 PR",
-      icon: <BookOpen className="w-7 h-7 text-blue-400" />,
-      color: "from-blue-500/20 to-blue-500/5"
+      icon: <BookOpen />,
+      iconColor: COLORS.slate400
     },
   ];
 
   return (
-    <div className="min-h-screen w-full text-gray-100 pt-10 pb-20 px-6 bg-slate-950 font-sans selection:bg-cyan-500/30">
-      {/* Dynamic Font Import via Style Tag */}
+    <div className="min-h-screen w-full overflow-x-hidden text-gray-100 pt-10 pb-20 px-6 bg-slate-950 font-sans selection:bg-cyan-500/30">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Poppins', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
       `}</style>
 
       <div className="max-w-7xl mx-auto">
@@ -175,6 +184,12 @@ export default function App() {
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-indigo-500/30"></div>
         </div>
 
+        {/* Background Aesthetic Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/5 blur-[120px] rounded-full animate-pulse" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/5 blur-[120px] rounded-full animate-pulse" />
+        </div>
+
         {/* EDUCATION TITLE */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -210,11 +225,14 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="md:text-right w-full md:w-auto pl-20 md:pl-0 flex flex-col md:items-end">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 font-mono text-xs mb-3 border border-cyan-500/20">
-                    <Clock className="w-3 h-3 mr-2" />
-                    {edu.year}
-                  </div>
+                <div className="flex-1 space-y-4">
+                <div 
+                  className="w-fit inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase whitespace-nowrap"
+                  style={{ color: edu.iconColor }}
+                >
+                  <Clock size={12} />
+                  {edu.year}
+                </div>
                   <span className="text-gray-500 text-xs font-bold uppercase tracking-widest bg-slate-800/50 px-3 py-1 rounded">
                     {edu.detail}
                   </span>
