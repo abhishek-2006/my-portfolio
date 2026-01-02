@@ -275,7 +275,7 @@ export default function App() {
                     className="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3 text-green-400 text-sm font-medium"
                   >
                     <CheckCircle2 size={20} />
-                    <span>Message delivered! A thank-you email has been sent to your inbox.</span>
+                    <span>Your message has been delivered! Thank you for reaching out. I’ll get back to you soon.</span>
                   </motion.div>
                 )}
                 {formState === "error" && (
